@@ -1,6 +1,6 @@
 # Ream Naval Base — Sentinel-1 SAR Change Detection
 
-Two-date C-band SAR change detection over Ream Naval Base, Cambodia (10.51°N, 103.60°E), processed in **ESA SNAP 13**. Independently corroborates the Chinese-funded pier, dry dock, and land-reclamation build-out documented in my open-source intelligence assessment of the facility.
+Two-date C-band SAR change detection over Ream Naval Base, Cambodia (10.51°N, 103.60°E), processed in ESA SNAP 13. Independently corroborates the Chinese-funded pier, dry dock, and land-reclamation build-out documented in my open-source intelligence assessment of the facility.
 
 ![Ream SAR change composite](Ream_SAR_change_20220219_20260622_RGB.png)
 
