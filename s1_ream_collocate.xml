@@ -1,0 +1,46 @@
+<graph id="S1_Ream_Collocate">
+  <version>1.0</version>
+
+  <node id="ReadMaster">
+    <operator>Read</operator>
+    <sources/>
+    <parameters>
+      <file>${master}</file>
+    </parameters>
+  </node>
+
+  <node id="ReadSlave">
+    <operator>Read</operator>
+    <sources/>
+    <parameters>
+      <file>${slave}</file>
+    </parameters>
+  </node>
+
+  <node id="Collocate">
+    <operator>Collocate</operator>
+    <sources>
+      <master refid="ReadMaster"/>
+      <slave refid="ReadSlave"/>
+    </sources>
+    <parameters>
+      <renameMasterComponents>true</renameMasterComponents>
+      <renameSlaveComponents>true</renameSlaveComponents>
+      <masterComponentPattern>${ORIGINAL_NAME}_M</masterComponentPattern>
+      <slaveComponentPattern>${ORIGINAL_NAME}_S</slaveComponentPattern>
+      <resamplingType>NEAREST_NEIGHBOUR</resamplingType>
+    </parameters>
+  </node>
+
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Collocate"/>
+    </sources>
+    <parameters>
+      <file>${output}</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+
+</graph>
