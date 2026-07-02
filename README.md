@@ -5,11 +5,11 @@ Two-date C-band SAR change detection over Ream Naval Base, Cambodia (10.51°N, 1
 ![Ream SAR change composite](Ream_SAR_change_20220219_20260622_RGB.png)
 
 **How to read it:** R = σ0 VV (dB) 22 Jun 2026 · G = B = σ0 VV (dB) 19 Feb 2022.
-**Red** = bright radar return present only in 2026 → new hard infrastructure (reclaimed land, pier/dry-dock waterfront, support buildings). **Cyan** = returns present only at the Feb 2022 baseline (dredgers, anchored vessels, removed features). **White** = stable structures; **dark** = water.
+**Red** = bright radar return present only in 2026 to new hard infrastructure (reclaimed land, pier/dry-dock waterfront, support buildings). **Cyan** = returns present only at the Feb 2022 baseline (dredgers, anchored vessels, removed features). **White** = stable structures; **dark** = water.
 
 ## Why SAR
 
-The Gulf of Thailand coast is cloud-covered much of the year, leaving gaps in optical (Sentinel-2) timelines. C-band SAR penetrates cloud, and bright, temporally stable returns discriminate hard infrastructure from transient activity — the right tool for monitoring construction at a denied-access naval facility.
+The Gulf of Thailand coast is cloud-covered much of the year, leaving gaps in optical (Sentinel-2) timelines. C-band SAR penetrates cloud, and bright, temporally stable returns discriminate hard infrastructure from transient activity - the right tool for monitoring construction at a denied-access naval facility.
 
 ## Data
 
@@ -22,11 +22,11 @@ Both Sentinel-1A, IW GRD-HD, **relative orbit 91, frame 557, descending** — ma
 
 ## Processing chain (per scene)
 
-1. **Subset** — geographic crop to the Ream AOI (10.40–10.66°N, 103.45–103.75°E)
-2. **Apply Orbit File** — Sentinel precise orbit state vectors (auto-download)
-3. **Radiometric Calibration** — DN → sigma-nought (σ0), VV + VH
-4. **Speckle Filtering** — Lee Sigma, 7×7 window, σ = 0.9 (preserves point targets such as moored vessels and pier structures)
-5. **Range-Doppler Terrain Correction** — SRTM 3-sec DEM, 10 m output, WGS84; sea-level masking disabled to preserve harbor pixels
+1. **Subset** - geographic crop to the Ream AOI (10.40–10.66°N, 103.45–103.75°E)
+2. **Apply Orbit File** - Sentinel precise orbit state vectors (auto-download)
+3. **Radiometric Calibration** - DN → sigma-nought (σ0), VV + VH
+4. **Speckle Filtering** - Lee Sigma, 7×7 window, σ = 0.9 (preserves point targets such as moored vessels and pier structures)
+5. **Range-Doppler Terrain Correction** - SRTM 3-sec DEM, 10 m output, WGS84; sea-level masking disabled to preserve harbor pixels
 
 Then across dates: **Collocation** of the two terrain-corrected products and an RGB composite of the dB-scaled VV bands.
 
@@ -43,7 +43,7 @@ gpt s1_ream_chain.xml -Pinput=/path/to/S1A_..._5D26.SAFE/manifest.safe -Poutput=
 gpt s1_ream_collocate.xml -Pmaster=ream_2022_TC.dim -Pslave=ream_2026_TC.dim -Poutput=ream_change_stack
 ```
 
-Scenes are free with a NASA Earthdata or Copernicus Data Space account (ASF Vertex / Copernicus Browser).
+Scenes are free with a NASA Earthdata or Copernicus Data Space account (ASF Vertex/Copernicus Browser).
 
 ## Related work
 
